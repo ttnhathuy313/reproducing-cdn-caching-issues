@@ -1,4 +1,3 @@
-import { GetStaticProps } from 'next';
 import ProductDetails from './_PageSections/_products';
 
 type Props = {
