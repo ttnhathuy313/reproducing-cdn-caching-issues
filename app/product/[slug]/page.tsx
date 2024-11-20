@@ -1,10 +1,7 @@
 import ProductDetails from './_PageSections/_products';
 
-type Props = {
-    slug: string;
-};
-
-const ProductPage = ({ slug }: Props) => {
+const ProductPage = async ({ params }: { params: { slug: string } }) => {
+    const { slug } = params;
     return (
         <div>
             <h1>This is product {slug}</h1>
@@ -13,12 +10,8 @@ const ProductPage = ({ slug }: Props) => {
     );
 };
 
-export const generateStaticParams = async () => {
-    const paths = ['one', 'two', 'three'].map(slug => ({
-        slug,
-    }));
-
-    return paths;
-};
+export async function generateStaticParams() {
+    return ['one', 'two', 'three'].map(slug => ({ slug }));
+}
 
 export default ProductPage;
